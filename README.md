@@ -10,6 +10,19 @@ Built for the **OKX X Layer × Uniswap × Flap "Hook the Future" hackathon** (Ma
 
 ---
 
+## What is Uniperp
+
+A **permissionless perpetuals DEX**. Anyone can launch a token in 30 seconds and trade it both spot and leveraged from the same UI, against the same liquidity, in the same Uniswap v4 pool.
+
+- **Permissionless launches** — connect a wallet, pick a base asset, upload an image, click Launch. The factory deploys the token + hook + lens, initialises a v4 pool, and seeds 300 concentrated LP bands of liquidity in one atomic transaction. No allowlist, no approval, no gatekeeping.
+- **Built-in leverage** — every launched market supports 3× longs and 3× shorts out of the box. There's no separate perp contract to set up, no orderbook to bootstrap, no funding-rate machinery to tune. The hook handles it.
+- **Whitelisted base assets** — launches are quoted against admin-curated bases. On X Layer that's **WOKB** and **USDC**; on Ethereum mainnet it extends to ETH, USDC, WBTC, LINK, UNI, PEPE, and more. Add a new base = one admin tx.
+- **One pool, one hook, one liquidity book** — leverage longs draw tokens *out* of the LP bands a spot trader fills against; shorts put tokens *back* in. The leverage book IS the spot book. No bridge between markets, no funding-rate drift, no separate venues to keep in sync.
+
+Think of it as **pump.fun's permissionless launches + Hyperliquid's leverage**, collapsed into a single Uniswap v4 hook contract — atomic, oracle-free, and composable with any v4-compatible aggregator.
+
+---
+
 ## Why it's novel
 
 1. **Single hook = whole exchange.** A 14-bit flag (`0x2ACC`) baked into the hook's CREATE2 address registers it for 7 v4 callbacks. Spot AMM, leverage engine, fee router — one contract.
