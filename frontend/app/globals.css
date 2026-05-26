@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background: #0a0a0c;
+  color: #e6e6ec;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;            /* never allow sideways scroll on any device */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Desktop (≥ md): lock to a single viewport — the trading-terminal layout.
+   Mobile: let the page grow and scroll naturally (stacked layout). */
+@media (min-width: 768px) {
+  html, body { height: 100%; }
+  body { overflow: hidden; }
+}
+
+/* On phones, force ≥16px on form controls so iOS Safari doesn't auto-zoom on focus. */
+@media (max-width: 767px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #23232e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a48;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+/* Top price-ticker marquee. The track holds the items twice; translating it
+   −50% loops seamlessly. Pauses on hover so a reader can catch a value. */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: ticker-scroll 60s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+input {
+  outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

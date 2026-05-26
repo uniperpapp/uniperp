@@ -1,0 +1,30 @@
+{
+  "name": "boost-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "wagmi": "2.12.17",
+    "viem": "2.21.27",
+    "@tanstack/react-query": "5.59.16",
+    "@aws-sdk/client-s3": "^3.700.0",
+    "connectkit": "1.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.16.13",
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.14",
+    "typescript": "5.6.3"
+  }
+}

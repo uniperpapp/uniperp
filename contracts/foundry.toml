@@ -1,0 +1,32 @@
+[profile.default]
+src = "src"
+out = "out"
+solc = "0.8.33"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1
+via_ir = true
+bytecode_hash = "none"
+cbor_metadata = false
+
+remappings = [
+    "@uniswap/v4-core/=lib/v4-core/",
+    "@uniswap/v4-periphery/=lib/v4-periphery/",
+    "@openzeppelin/uniswap-hooks/=lib/uniswap-hooks/",
+    "solady/=lib/solady/",
+    "forge-std/=lib/forge-std/src/",
+]
+
+[invariant]
+runs = 30
+depth = 50
+fail_on_revert = false
+
+[rpc_endpoints]
+# X Layer mainnet (OKX L2, chain 196). Set XLAYER_RPC_URL in .env (or rely on
+# the public RPC default `https://rpc.xlayer.tech`).
+xlayer = "${XLAYER_RPC_URL}"
+
+[etherscan]
+# X Layer verification goes through Sourcify, not Etherscan. Use
+# `forge verify-contract --verifier sourcify --rpc-url xlayer ...` directly.

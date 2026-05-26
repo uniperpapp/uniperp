@@ -1,0 +1,23 @@
+{
+  "name": "perpfactory-dex-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev":   "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pg": "^8.13.0",
+    "tsx": "^4.19.0",
+    "hono": "^4.5.0",
+    "@hono/node-server": "^1.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.11.10",
+    "typescript": "^5.5.0"
+  },
+  "engines": { "node": ">=20" }
+}
